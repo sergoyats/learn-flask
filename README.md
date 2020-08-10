@@ -2,7 +2,7 @@
 Our first flask application before we start do world better
 
 ### Requirements
-* Python3.6+
+* Python 3.6+
 * pip ~19.03+
 * virtualenv
 
