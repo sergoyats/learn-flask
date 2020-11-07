@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
 
-
 app = Flask(__name__)  
 
 storage = dict()
@@ -34,6 +33,17 @@ def delete_user(username):
         return 'User doesn\'t exist or already deleted'
 
 
+@app.route('/user/add/<usernames>', methods=['POST'])
+def add_user_to_list(usernames):
+    username = request.form.get('usernames')
+    new_users = storage.copy()
+    storage.update({username:{}})
+    if username in new_users:
+        return f'User {username} already in list'
+    else:
+         return f'User {username} added'
+
+    
 @app.route('/users/add/', methods=["POST"])
 def add_user_list():
     data = request.get_json()
